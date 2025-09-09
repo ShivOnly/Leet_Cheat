@@ -1,0 +1,15 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try (FileWriter fw = new FileWriter("display_runtime.txt")) {
+                fw.write("0");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
+        // your code here
+    }
+}
